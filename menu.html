@@ -1,82 +1,927 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhiet Doi Coffee & Tea Menu</title>
+    <!-- Cache control meta tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Phuc Long Style Replica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arimo', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrollbar on the page */
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-image: url("background.png");
-            background-size: cover; /* Ensures the frame background covers the container */
-            background-position: center; /* Centers the frame background */
-            background-repeat: no-repeat;
+            line-height: 1.6;
+            color: rgb(0, 111, 60); /* Global text color */
             display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
-            padding: 10px; /* Adds some padding for smaller screens */
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .menu-container {
+        main {
+            flex: 1;
+            margin-top: 90px; /* Adjusted for header height on desktop */
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            padding: 15px 30px;
+            position: fixed;
             width: 100%;
-            max-width: 600px; /* Maximum width for larger screens */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgb(0, 111, 60);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: rgb(0, 111, 60);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: #f4d35e; /* Kept hover color for contrast */
+        }
+
+        /* Burger Menu Styles */
+        #menu-toggle {
+            display: none; /* Hidden checkbox for toggling */
+        }
+
+        .nav-container .burger-menu,
+        .menu-header .burger-menu {
+            display: none; /* Hidden by default on desktop */
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .nav-container .burger-menu span,
+        .menu-header .burger-menu span {
+            background-color: rgb(0, 111, 60);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container .burger-menu span {
+            width: 30px;
+            height: 4px;
+        }
+
+        /* When checkbox is checked, transform main header burger icon into an "X" */
+        #menu-toggle:checked ~ .nav-container .burger-menu span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        #menu-toggle:checked ~ .nav-container .burger-menu span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle:checked ~ .nav-container .burger-menu span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Dropdown Menu Header (Logo and Burger Icon) */
+        .menu-header {
+            display: none; /* Hidden by default on desktop */
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            border-bottom: 1px solid rgb(0, 111, 60);
+        }
+
+        .menu-header .logo img {
+            height: 40px;
+        }
+
+        .menu-header .burger-menu {
+            gap: 4px;
+        }
+
+        .menu-header .burger-menu span {
+            width: 25px;
+            height: 3px;
+        }
+
+        /* When checkbox is checked, transform dropdown burger icon into an "X" */
+        #menu-toggle:checked ~ nav .menu-header .burger-menu span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+
+        #menu-toggle:checked ~ nav .menu-header .burger-menu span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu-toggle:checked ~ nav .menu-header .burger-menu span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            background: rgba(26, 60, 52, 0.8);
+            padding: 30px 50px;
+            border-radius: 8px;
+        }
+
+        .hero-content h1 {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #f4d35e;
+            color: rgb(0, 111, 60);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e0c350;
+        }
+
+        /* Product Section */
+        .products {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
             text-align: center;
         }
 
-        .menu-container h1 {
-            font-size: 24px;
-            color: #2f4f4f; /* Dark teal color */
+        .products h2 {
+            font-size: 36px;
+            color: rgb(0, 111, 60);
+            margin-bottom: 20px;
+        }
+
+        .products p {
+            font-size: 18px;
+            color: rgb(0, 111, 60);
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            color: rgb(0, 111, 60);
+            padding: 15px;
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .about h1 {
+            font-size: 36px;
+            color: rgb(0, 111, 60);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: rgb(0, 111, 60);
+            margin-bottom: 20px;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Menu Section */
+        .menu {
+            margin: 30px auto;
+            min-height: calc(100vh - 90px - 60vizpx); /* Adjusted for header height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0; /* Removed padding-top since margin-top on main handles it */
+            padding-bottom: 60px;
+            text-align: center;
+            display: none;
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+
+        .menu h1 {
+            font-size: 36px;
+            color: rgb(0, 111, 60);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .category-section {
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .category-section h2 {
+            font-size: 28px;
+            color: rgb(0, 111, 60);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 items in 1 row */
+            gap: 20px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .menu-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+            flex: 1; /* Allow cards to shrink */
+            min-width: 0; /* Prevent overflow */
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-card h3 {
+            font-size: 20px;
+            color: rgb(0, 111, 60);
+            margin: 10px 0;
+        }
+
+        .menu-card p {
+            font-size: 14px;
+            color: rgb(0, 111, 60);
+            padding: 0 15px;
+            margin-bottom: 10px;
+        }
+
+        .size-prices {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px; /* Matches the spacing between M and L */
             margin-bottom: 15px;
+            margin-top: auto;
         }
 
-        .menu-image {
-            width: 100%; /* Makes the image take the full width of its container */
-            height: auto; /* Maintains aspect ratio */
-            border: 2px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: block; /* Ensures the image behaves as a block element */
+        .size-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Media query for mobile devices */
+        .size-price .size {
+            font-size: 16px;
+            font-weight: 700;
+            color: rgb(0, 111, 60);
+            margin-bottom: 5px;
+        }
+
+        .size-price .price {
+            font-size: 16px;
+            font-weight: 700;
+            color: rgb(0, 111, 60);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgb(200, 200, 200); /* Light gray for readability */
+            color: rgb(0, 111, 60);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) { /* Adjusted breakpoint for 2-column layout */
+            .nav-container {
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .hero-content {
+                padding: 20px 40px;
+            }
+
+            .products h2 {
+                font-size: 30px;
+            }
+
+            .products p {
+                font-size: 16px;
+            }
+
+            .about h1 {
+                font-size: 30px;
+            }
+
+            .about p {
+                font-size: 16px;
+            }
+
+            .menu h1 {
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+
+            .category-section {
+                margin-bottom: 30px;
+            }
+
+            .category-section h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+            }
+
+            .menu-card img {
+                height: 180px;
+            }
+
+            .menu-card h3 {
+                font-size: 18px;
+            }
+
+            .menu-card p {
+                font-size: 13px;
+            }
+
+            .size-prices {
+                padding: 0 50px; /* Matches the spacing */
+                margin-bottom: 10px;
+            }
+
+            .size-price .size {
+                font-size: 14px;
+            }
+
+            .size-price .price {
+                font-size: 14px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .menu-container {
-                max-width: 100%; /* Allows the container to take full width on mobile */
-                padding: 0 10px; /* Adds padding to prevent the image from touching the edges */
+            main {
+                margin-top: 60px; /* Adjusted for header height on mobile */
             }
 
-            .menu-container h1 {
-                font-size: 20px; /* Slightly smaller heading on mobile */
+            .nav-container {
+                flex-direction: row;
+                align-items: center;
+                padding: 10px 15px;
+                justify-content: space-between; /* Ensure logo and burger are at extremes */
             }
 
-            .menu-image {
-                border-width: 1px; /* Thinner border on mobile for better aesthetics */
-                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Lighter shadow on mobile */
-            }
-        }
-
-        /* Media query for very small screens (e.g., phones in portrait mode) */
-        @media (max-width: 480px) {
-            .menu-container h1 {
-                font-size: 18px; /* Even smaller heading for very small screens */
+            .logo img {
+                height: 40px;
             }
 
-            .menu-image {
-                border: none; /* Remove border on very small screens */
-                box-shadow: none; /* Remove shadow on very small screens */
+            /* Ensure burger menu is on the far right */
+            .nav-container .burger-menu {
+                display: flex;
+                order: 2; /* Move to the end of flex container */
+                margin-left: auto; /* Push to the right */
+            }
+
+            /* Show and hide the nav links by default */
+            nav {
+                order: 1; /* Place nav before burger menu for logical order */
+            }
+
+            nav ul {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Matches header height: 40px logo + 10px top padding + 10px bottom padding */
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                padding: 0; /* Remove padding from ul to let menu-header handle it */
+                gap: 15px;
+                z-index: 999;
+            }
+
+            /* Show nav links when checkbox is checked */
+            #menu-toggle:checked ~ nav ul {
+                display: flex;
+            }
+
+            /* Show the menu header on mobile */
+            .menu-header {
+                display: flex;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+                display: block;
+                padding: 10px 20px; /* Padding for links */
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .hero-content h1 {
+                font-size: 30px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-content {
+                padding: 15px 30px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .products {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            .products h2 {
+                font-size: 24px;
+            }
+
+            .products p {
+                font-size: 14px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card img {
+                height: 150px;
+            }
+
+            .product-card h3 {
+                font-size: 18px;
+                padding: 10px;
+            }
+
+            .about {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            .about h1 {
+                font-size: 24px;
+            }
+
+            .about p {
+                font-size: 14px;
+            }
+
+            .about img {
+                max-width: 100%;
+            }
+
+            .menu {
+                min-height: calc(100vh - 60px - 50px); /* Adjusted for header height */
+                padding-top: 0; /* Removed since margin-top on main handles it */
+                padding-bottom: 50px;
+            }
+
+            .menu h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .category-section {
+                margin-bottom: 20px;
+            }
+
+            .category-section h2 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 15px;
+            }
+
+            .menu-card {
+                padding-bottom: 10px;
+            }
+
+            .menu-card img {
+                height: 150px;
+            }
+
+            .menu-card h3 {
+                font-size: 16px;
+                margin: 8px 0;
+            }
+
+            .menu-card p {
+                font-size: 12px;
+                padding: 0 10px;
+                margin-bottom: 8px;
+            }
+
+            .size-prices {
+                padding: 0 50px; /* Matches the spacing */
+                margin-bottom: 10px;
+            }
+
+            .size-price .size {
+                font-size: 12px;
+            }
+
+            .size-price .price {
+                font-size: 12px;
+            }
+
+            footer {
+                padding: 15px;
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
-<div class="menu-container">
-    <img src="menu.png" alt="Nhiet Doi Tropical Coffee & Tea Menu" class="menu-image">
-</div>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Phuc Long Logo">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <nav>
+                <ul>
+                    <li class="menu-header">
+                        <div class="logo">
+                            <img src="https://phuclong.com.vn/_next/static/images/logo_2-fdd0b762f4686e31e1101d029a664bc9.png" alt="Phuc Long Logo">
+                        </div>
+                        <label for="menu-toggle" class="burger-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </li>
+                    <li><a href="#home" onclick="showHome(); document.getElementById('menu-toggle').checked = false;">Home</a></li>
+                    <li><a href="#menu-section" onclick="showMenu(); document.getElementById('menu-toggle').checked = false;">Menu</a></li>
+                    <li><a href="#about" onclick="showAbout(); document.getElementById('menu-toggle').checked = false;">About</a></li>
+                </ul>
+            </nav>
+            <label for="menu-toggle" class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Nhiet Doi Tradition</h1>
+                    <p>Discover authentic Vietnamese tea and coffee crafted with heritage.</p>
+                    <a href="#menu-section" class="btn">Explore Menu</a>
+                </div>
+            </div>
+
+            <div id="menu" class="products">
+                <h2>Our Products</h2>
+                <p>Explore our range of premium teas and coffees inspired by tradition.</p>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=200&q=80"
+                             onerror="this.src = 'placeholder.png'"
+                             alt="Premium Tea">
+                        <h3>Premium Tea</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCTyyjS1Iswq0ZQT3dFQqzw9-TZKenCDud0mNQJa8pXw&s&ec=72940544"
+                             onerror="this.src = 'placeholder.png'"
+                             alt="Artisan Coffee">
+                        <h3>Coffee</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://media.istockphoto.com/id/1067202868/photo/aperol-cocktail-drink.jpg?s=612x612&w=0&k=20&c=m5oH6YDoJT9X7pEbyOcB-bs1lllNTi1AJr6qdfRe7CU="
+                             onerror="this.src = 'placeholder.png'"
+                             alt="Gift Sets">
+                        <h3>Juice</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h1>About Us</h1>
+            <p>Nhiet Doi is dedicated to preserving the rich heritage of Vietnamese tea and coffee. Our journey began with a passion for authentic flavors and a commitment to quality.</p>
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Nhiet Doi">
+            <p>From sourcing the finest ingredients to crafting each product with care, we aim to bring the essence of tradition to every cup. Join us in celebrating the art of tea and coffee.</p>
+        </section>
+
+        <section id="menu-section" class="menu">
+            <!-- Coffee Category -->
+            <div class="category-section">
+                <h2>Coffee</h2>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <img src="https://i.pinimg.com/736x/a9/5d/a6/a95da6bbccbb8d81b7c00069255be1c0.jpg"
+                             onerror="this.src='logo.png'"
+                             alt="Vietnamese Iced Coffee">
+                        <h3>Vietnamese Black Iced Coffee</h3>
+                        <p>Rich, bold coffee served over ice.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">19</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">22</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://i.pinimg.com/736x/54/fa/52/54fa529309537816c78ba39d8e7e8eaf.jpg"
+                             onerror="this.src='logo.png'"
+                             alt="Vietnamese Iced Coffee">
+                        <h3>Vietnamese Milk Iced Coffee</h3>
+                        <p>Rich, bold coffee with sweetened condensed milk, served over ice.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">22</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://i.postimg.cc/mDdcYdMV/722b8aa8cc44e516a4b87eda49c685fe-Photoroom.jpg"
+                             onerror="this.src='logo.png'"
+                             alt="Vietnamese Salted Coffee">
+                        <h3>Vietnamese Salted Iced Coffee</h3>
+                        <p>Rich, bold coffee with sweetened condensed milk, salt and cream, served over ice.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">24</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">28</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tea Category -->
+            <div class="category-section">
+                <h2>Tea</h2>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1597041602282-9be51d737c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=200&q=80"
+                             onerror="this.src='logo.png'"
+                             alt="Jasmine Tea">
+                        <h3>Jasmine Tea</h3>
+                        <p>Fragrant green tea infused with jasmine blossoms, served hot or iced.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">$2.75</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">$3.25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1597041602282-9be51d737c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=200&q=80"
+                             onerror="this.src='logo.png'"
+                             alt="Green Tea Latte">
+                        <h3>Green Tea Latte</h3>
+                        <p>Creamy latte made with matcha green tea and steamed milk.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">$4.00</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">$4.50</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1597041602282-9be51d737c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=200&q=80"
+                             onerror="this.src='logo.png'"
+                             alt="Black Tea">
+                        <h3>Black Tea</h3>
+                        <p>Robust and full-bodied black tea, perfect for any time of day.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">$3.00</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">$3.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Juice Category -->
+            <div class="category-section">
+                <h2>Juice</h2>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1597041602282-9be51d737c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=250&h=200&q=80"
+                             onerror="this.src='logo.png'"
+                             alt="Fresh Orange Juice">
+                        <h3>Fresh Orange Juice</h3>
+                        <p>Freshly squeezed orange juice, packed with vitamin C.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">$3.25</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">$3.75</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Nhiet Doi Style. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showHome() {
+            document.querySelector('.home').style.display = 'block';
+            document.querySelector('.about').style.display = 'none';
+            document.querySelector('.menu').style.display = 'none';
+            document.getElementById('menu-toggle').checked = false; // Close burger menu
+        }
+
+        function showAbout() {
+            document.querySelector('.home').style.display = 'none';
+            document.querySelector('.about').style.display = 'block';
+            document.querySelector('.menu').style.display = 'none';
+            document.getElementById('menu-toggle').checked = false; // Close burger menu
+        }
+
+        function showMenu() {
+            document.querySelector('.home').style.display = 'none';
+            document.querySelector('.about').style.display = 'none';
+            document.querySelector('.menu').style.display = 'flex';
+            document.getElementById('menu-toggle').checked = false; // Close burger menu
+        }
+    </script>
 </body>
 </html>
