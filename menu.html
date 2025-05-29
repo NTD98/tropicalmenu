@@ -415,8 +415,55 @@
             margin: 0;
         }
 
+        .carousel {
+            position: relative;
+            max-width: 1200px; /* Match the width of .menu */
+            height: 600px;
+            overflow: hidden;
+            margin: 50px auto; /* Center the carousel */
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
         /* Responsive Design */
-        @media (max-width: 900px) { /* Adjusted breakpoint for 2-column layout */
+        @media (max-width: 900px) {
+
+            /* Adjusted breakpoint for 2-column layout */
             .nav-container {
                 padding: 10px 15px;
             }
@@ -479,6 +526,10 @@
                 grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
             }
 
+            .carousel {
+                height: 250px; /* Adjust height for smaller screens */
+            }
+
             .menu-card img {
                 height: 250px;
                 background-color: white;
@@ -507,6 +558,7 @@
         }
 
         @media (max-width: 768px) {
+
             main {
                 margin-top: 60px; /* Adjusted for header height on mobile */
             }
@@ -634,6 +686,10 @@
                 padding-bottom: 50px;
             }
 
+            .carousel {
+                max-height: 250px; /* Adjusted for header height */
+            }
+
             .menu h1 {
                 font-size: 24px;
                 margin-bottom: 20px;
@@ -732,6 +788,17 @@
                 </div>
             </div>
 
+            <section class="carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="voucher.png" alt="Banner 1">
+                    </div>
+                    <button class="carousel-btn prev">❮</button>
+                    <button class="carousel-btn next">❯</button>
+                </div>
+
+            </section>
+
             <div id="menu" class="products">
                 <h2>Sản Phẩm</h2>
                 <p>Khám phá các loại trà và cà phê cao cấp lấy cảm hứng từ truyền thống.</p>
@@ -818,6 +885,23 @@
                             <div class="size-price">
                                 <span class="size">L</span>
                                 <span class="price">28</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <img src="cacaosuada.png"
+                             onerror="this.src='logo.png'"
+                             alt="Cacao milk shake">
+                        <h3>Cacao sữa đá</h3>
+                        <p>Cacao nguyên chất, sữa đặc.</p>
+                        <div class="size-prices">
+                            <div class="size-price">
+                                <span class="size">M</span>
+                                <span class="price">19</span>
+                            </div>
+                            <div class="size-price">
+                                <span class="size">L</span>
+                                <span class="price">22</span>
                             </div>
                         </div>
                     </div>
