@@ -299,6 +299,68 @@
             overflow-x: hidden; /* Prevent horizontal scrollbar */
         }
 
+        .event-section {
+            width: 95vw;
+            height: 95vh;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        .event-section h2 {
+            font-size: 28px;
+            color: rgb(0, 111, 60);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .event-section .event-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 items in 1 row */
+            gap: 20px;
+            height: 100%;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .event-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80%;
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: center;
+            flex: 1; /* Allow cards to shrink */
+            min-width: 0; /* Prevent overflow */
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            background-color: white;
+        }
+
+        .event-card h3 {
+            font-size: 20px;
+            color: rgb(0, 111, 60);
+            margin: 10px 0;
+            padding-inline: 10px;
+        }
+
+        .event-card p {
+            font-size: 14px;
+            color: rgb(0, 111, 60);
+            padding: 0 15px;
+            margin-bottom: 10px;
+        }
+
         .menu h1 {
             font-size: 36px;
             color: rgb(0, 111, 60);
@@ -458,6 +520,59 @@
 
         .carousel-btn.next {
             right: 10px;
+        }
+        .event {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center; /* Align items horizontally */
+            align-items: center; /* Align items vertically */
+        }
+
+        .menu-card {
+            position: relative; /* Ensure positioning context for the icon */
+        }
+
+        .top-seller-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .top-seller-icon::after {
+            content: "Top Seller"; /* Text to display */
+            position: absolute;
+            top: 100%; /* Position below the icon */
+            left: 150%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8); /* Background for the text */
+            color: white; /* Text color */
+            padding: 5px 10px; /* Padding for better appearance */
+            border-radius: 5px; /* Rounded corners */
+            white-space: nowrap; /* Prevent text wrapping */
+            font-size: 12px; /* Adjust font size */
+            opacity: 0; /* Initially hidden */
+            pointer-events: none; /* Prevent interaction */
+            transition: opacity 0.3s ease; /* Smooth fade-in effect */
+        }
+
+        .top-seller-icon:hover::after {
+            opacity: 1; /* Show text on hover */
+        }
+
+        .menu-card .top-seller-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            color: rgb(0, 111, 60); /* Yellow color for the star */
+            /*background-color: gray; !* Gray background *!*/
+            border-radius: 10%; /* Make the background circular */
+            padding: 5px; /* Add padding for better appearance */
+            width: 20px; /* Set width for consistent size */
+            height: 20px; /* Set height for consistent size */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Responsive Design */
@@ -746,6 +861,48 @@
                 padding: 15px;
                 font-size: 12px;
             }
+
+            .event{
+                margin-top: 10vh;
+            }
+
+            .event-section {
+                width: 100%; /* Full width for mobile */
+                height: auto; /* Adjust height for content */
+                margin: 10vh auto;
+                padding: 0 15px;
+            }
+
+            .event-section h2 {
+                font-size: 20px; /* Smaller font size for mobile */
+                margin-bottom: 15px; /* Adjust spacing */
+            }
+
+            .event-section .event-grid {
+                grid-template-columns: 1fr; /* Single column layout */
+                gap: 15px; /* Adjust gap between items */
+                padding: 0 10px; /* Reduce padding */
+            }
+
+            .event-card {
+                height: 35vh; /* Adjust height for content */
+                margin-bottom: 10px; /* Add spacing between cards */
+            }
+
+            .event-card img {
+                height: 30vh; /* Adjust image height */
+                max-height: 200px; /* Limit image height */
+            }
+
+            .event-card h3 {
+                font-size: 16px; /* Smaller font size */
+                margin: 10px 0; /* Adjust spacing */
+            }
+
+            .event-card p {
+                font-size: 14px; /* Smaller font size */
+                padding: 0 10px; /* Reduce padding */
+            }
         }
     </style>
 </head>
@@ -767,6 +924,7 @@
                     </li>
                     <li><a href="#home" onclick="showHome(); document.getElementById('menu-toggle').checked = false;">Home</a></li>
                     <li><a href="#menu-section" onclick="showMenu(); document.getElementById('menu-toggle').checked = false;">Menu</a></li>
+                    <li><a href="#event" onclick="showEvent(); document.getElementById('menu-toggle').checked = false;">Event</a></li>
                     <li><a href="#about" onclick="showAbout(); document.getElementById('menu-toggle').checked = false;">About</a></li>
                 </ul>
             </nav>
@@ -832,6 +990,20 @@
             <p>Từ việc chọn lọc những nguyên liệu tốt nhất đến việc chế biến từng sản phẩm một cách tỉ mỉ, chúng tôi mong muốn mang đến tinh hoa truyền thống trong từng tách trà và cà phê. Hãy cùng chúng tôi tôn vinh nghệ thuật trà và cà phê.</p>
         </section>
 
+        <section id="event-section" class="event">
+            <div class="event-section">
+                <h2>Event</h2>
+                <div class="event-grid" style="grid-template-columns: 1fr;">
+                    <div class="event-card">
+                        <img src="voucher.png"
+                             onerror="this.src='logo.png'"
+                             alt="Event Image">
+                        <h3>Voucher dành cho tháng 6</h3>
+                        <p>Giảm giá 10% cho tất cả các loại thức uống khi dùng voucher (01/06/2025 - 30/06/2025) </p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="menu-section" class="menu">
             <!-- Coffee Category -->
             <div class="category-section">
@@ -923,6 +1095,7 @@
                         </div>
                     </div>
                     <div class="menu-card">
+                        <span class="top-seller-icon">★</span>
                         <img src="cacaolatte.png"
                              onerror="this.src='logo.png'"
                              alt="Cacao latte">
@@ -940,6 +1113,7 @@
                         </div>
                     </div>
                     <div class="menu-card">
+                        <span class="top-seller-icon">★</span>
                         <img src="cacaosua.png"
                              onerror="this.src='logo.png'"
                              alt="Cacao milk shake">
@@ -1031,6 +1205,7 @@
                         </div>
                     </div>
                     <div class="menu-card">
+                        <span class="top-seller-icon">★</span>
                         <img src="tralaidacthom.png"
                              onerror="this.src='logo.png'"
                              alt="Blueberry Tea">
@@ -1048,6 +1223,7 @@
                         </div>
                     </div>
                     <div class="menu-card">
+                        <span class="top-seller-icon">★</span>
                         <img src="matchalatte.png"
                              onerror="this.src='logo.png'"
                              alt="Matcha Latte">
@@ -1097,6 +1273,7 @@
                         </div>
                     </div>
                     <div class="menu-card">
+                        <span class="top-seller-icon">★</span>
                         <img src="nuocduahatdac.png"
                              onerror="this.src='logo.png'"
                              alt="Fresh Coconut Juice">
@@ -1109,6 +1286,7 @@
                         </div>
                     </div>
                     <div class="menu-card">
+                        <span class="top-seller-icon">★</span>
                         <img src="nuocduathotnot.png"
                              onerror="this.src='logo.png'"
                              alt="Fresh Coconut Juice">
@@ -1145,6 +1323,7 @@
         function showHome() {
             document.querySelector('.home').style.display = 'block';
             document.querySelector('.about').style.display = 'none';
+            document.querySelector('.event').style.display = 'none';
             document.querySelector('.menu').style.display = 'none';
             document.getElementById('menu-toggle').checked = false; // Close burger menu
         }
@@ -1152,6 +1331,7 @@
         function showAbout() {
             document.querySelector('.home').style.display = 'none';
             document.querySelector('.about').style.display = 'block';
+            document.querySelector('.event').style.display = 'none';
             document.querySelector('.menu').style.display = 'none';
             document.getElementById('menu-toggle').checked = false; // Close burger menu
         }
@@ -1159,7 +1339,16 @@
         function showMenu() {
             document.querySelector('.home').style.display = 'none';
             document.querySelector('.about').style.display = 'none';
+            document.querySelector('.event').style.display = 'none';
             document.querySelector('.menu').style.display = 'flex';
+            document.getElementById('menu-toggle').checked = false; // Close burger menu
+        }
+
+        function showEvent() {
+            document.querySelector('.home').style.display = 'none';
+            document.querySelector('.about').style.display = 'none';
+            document.querySelector('.menu').style.display = 'none';
+            document.querySelector('.event').style.display = 'flex';
             document.getElementById('menu-toggle').checked = false; // Close burger menu
         }
     </script>
