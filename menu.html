@@ -10,6 +10,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <style>
+        /* Dropdown in nav menu */
+        nav ul li.dropdown {
+            position: relative;
+        }
+
+        nav ul li.dropdown .btn {
+            cursor: pointer;
+        }
+
+        /* Dropdown submenu */
+        nav ul li .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: white;
+            min-width: 140px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            z-index: 1001;
+            border-radius: 5px;
+        }
+
+        nav ul li .dropdown-content li {
+            display: block;
+        }
+
+        nav ul li .dropdown-content li a {
+            padding: 10px 15px;
+            display: block;
+            color: rgb(0, 111, 60);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        nav ul li .dropdown-content li a:hover {
+            background-color: #f4d35e;
+            color: white;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -925,7 +964,14 @@
                         </label>
                     </li>
                     <li><a href="#home" onclick="showHome(); document.getElementById('menu-toggle').checked = false;">Home</a></li>
-                    <li><a href="#menu-section" onclick="showMenu(); document.getElementById('menu-toggle').checked = false;">Menu</a></li>
+                    <li class="dropdown">
+                        <a onclick="toggleDropdown()">Menu</a>
+                        <ul id="dropdown-content" class="dropdown-content">
+                            <li><a href="#" onclick="scrollToCategory('Coffee')">Coffee</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Tea')">Tea</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Juice')">Juice</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#event" onclick="showEvent(); document.getElementById('menu-toggle').checked = false;">Event</a></li>
                     <li><a href="#about" onclick="showAbout(); document.getElementById('menu-toggle').checked = false;">About</a></li>
                 </ul>

@@ -21,3 +21,28 @@ prevBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('resize', updateCarousel);
+    function toggleDropdown() {
+        const dropdown = document.getElementById("dropdown-content");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function(event) {
+        const dropdown = document.getElementById("dropdown-content");
+        if (!event.target.closest('.dropdown')) {
+            dropdown.style.display = 'none';
+        }
+    };
+
+    function scrollToCategory(category) {
+        showMenu(); // Show menu section
+        setTimeout(() => {
+            const headings = document.querySelectorAll('.menu .category-section h2');
+            for (const heading of headings) {
+                if (heading.textContent.trim().toLowerCase() === category.toLowerCase()) {
+                    heading.scrollIntoView({ behavior: 'smooth' });
+                    break;
+                }
+            }
+        }, 50);
+        toggleDropdown();
+    }
