@@ -34,10 +34,8 @@ window.onclick = function(event) {
 };
 
 function scrollToCategory(category) {
-        showMenu(); // Show menu section
-        toggleDropdown();
         setTimeout(() => {
-            const headings = document.querySelectorAll('.menu .category-section h2');
+            const headings = document.querySelectorAll('.category-section.scroll-mt-24 h2');
             for (const heading of headings) {
                 if (heading.textContent.trim().toLowerCase() === category.toLowerCase()) {
                     heading.scrollIntoView({ behavior: 'smooth' });
@@ -45,5 +43,4 @@ function scrollToCategory(category) {
                 }
             }
         }, 50);
-        toggleDropdown();
 }
