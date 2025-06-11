@@ -10,8 +10,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <style>
+        /* Dropdown in nav menu */
+        ul li.dropdown {
+            position: relative;
+        }
+
+        ul li.dropdown .btn {
+            cursor: pointer;
+        }
+
+        /* Dropdown submenu */
+        ul li .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 25px;
+            left: 0;
+            background-color: white;
+            min-width: 140px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            z-index: 1001;
+            border-radius: 5px;
+        }
+
+        ul li .dropdown-content li {
+            display: block;
+        }
+
+        ul li .dropdown-content li a {
+            padding: 10px 15px;
+            display: block;
+            color: rgb(0, 111, 60);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        ul li .dropdown-content li a:hover {
+            background-color: #f4d35e;
+            color: white;
+        }
+
         * {
-            margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arimo', sans-serif;
@@ -49,6 +87,7 @@
         }
 
         .nav-container {
+            max-height: fit-content;
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -63,13 +102,13 @@
             width: auto;
         }
 
-        nav ul {
+        ul {
             list-style: none;
             display: flex;
             gap: 25px;
         }
 
-        nav ul li a {
+        ul li a {
             color: rgb(0, 111, 60);
             text-decoration: none;
             font-size: 16px;
@@ -78,7 +117,7 @@
             cursor: pointer;
         }
 
-        nav ul li a:hover {
+        ul li a:hover {
             color: #f4d35e; /* Kept hover color for contrast */
         }
 
@@ -145,15 +184,15 @@
         }
 
         /* When checkbox is checked, transform dropdown burger icon into an "X" */
-        #menu-toggle:checked ~ nav .menu-header .burger-menu span:nth-child(1) {
+        #menu-toggle:checked ~ .menu-header .burger-menu span:nth-child(1) {
             transform: rotate(45deg) translate(4px, 4px);
         }
 
-        #menu-toggle:checked ~ nav .menu-header .burger-menu span:nth-child(2) {
+        #menu-toggle:checked ~ .menu-header .burger-menu span:nth-child(2) {
             opacity: 0;
         }
 
-        #menu-toggle:checked ~ nav .menu-header .burger-menu span:nth-child(3) {
+        #menu-toggle:checked ~ .menu-header .burger-menu span:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
@@ -479,8 +518,8 @@
 
         .carousel {
             position: relative;
-            max-width: 1200px; /* Match the width of .menu */
-            height: 600px;
+            max-width: 1100px; /* Match the width of .menu */
+            height: 550px;
             overflow: hidden;
             margin: 50px auto; /* Center the carousel */
         }
@@ -532,6 +571,11 @@
         .menu-card {
             position: relative; /* Ensure positioning context for the icon */
         }
+        .menu-wrapper {
+            height: 100%;
+            display: block;
+            box-sizing: border-box; /* Ensure positioning context for the icon */
+        }
 
         .top-seller-icon {
             position: relative;
@@ -577,6 +621,9 @@
 
         /* Responsive Design */
         @media (max-width: 900px) {
+            ul li .dropdown-content {
+                top: 40px;
+            }
 
             /* Adjusted breakpoint for 2-column layout */
             .nav-container {
@@ -587,11 +634,11 @@
                 height: 50px;
             }
 
-            nav ul {
+            ul {
                 gap: 15px;
             }
 
-            nav ul li a {
+            ul li a {
                 font-size: 14px;
             }
 
@@ -673,7 +720,9 @@
         }
 
         @media (max-width: 768px) {
-
+            ul li .dropdown-content {
+                top: 40px;
+            }
             main {
                 margin-top: 60px; /* Adjusted for header height on mobile */
             }
@@ -696,12 +745,8 @@
                 margin-left: auto; /* Push to the right */
             }
 
-            /* Show and hide the nav links by default */
-            nav {
-                order: 1; /* Place nav before burger menu for logical order */
-            }
-
-            nav ul {
+            ul {
+                order: 1;
                 display: none; /* Hidden by default */
                 flex-direction: column;
                 position: absolute;
@@ -716,7 +761,7 @@
             }
 
             /* Show nav links when checkbox is checked */
-            #menu-toggle:checked ~ nav ul {
+            #menu-toggle:checked ~ ul {
                 display: flex;
             }
 
@@ -725,7 +770,7 @@
                 display: flex;
             }
 
-            nav ul li a {
+            ul li a {
                 font-size: 16px;
                 display: block;
                 padding: 10px 20px; /* Padding for links */
@@ -915,7 +960,7 @@
                 <img src="logo.png" alt="Nhiet Doi Logo">
             </div>
             <input type="checkbox" id="menu-toggle">
-            <nav>
+<!--            <nav>-->
                 <ul>
                     <li class="menu-header">
                         <label for="menu-toggle" class="burger-menu">
@@ -925,11 +970,18 @@
                         </label>
                     </li>
                     <li><a href="#home" onclick="showHome(); document.getElementById('menu-toggle').checked = false;">Home</a></li>
-                    <li><a href="#menu-section" onclick="showMenu(); document.getElementById('menu-toggle').checked = false;">Menu</a></li>
+                    <li onmouseenter="toggleDropdown()" onmouseleave="toggleDropdown()" class="dropdown">
+                        <a onclick="showMenu()">Menu</a>
+                        <ul id="dropdown-content" class="dropdown-content">
+                            <li><a href="#" onclick="scrollToCategory('Coffee')">Coffee</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Tea')">Tea</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Juice')">Juice</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#event" onclick="showEvent(); document.getElementById('menu-toggle').checked = false;">Event</a></li>
                     <li><a href="#about" onclick="showAbout(); document.getElementById('menu-toggle').checked = false;">About</a></li>
                 </ul>
-            </nav>
+<!--            </nav>-->
             <label for="menu-toggle" class="burger-menu">
                 <span></span>
                 <span></span>
@@ -940,13 +992,6 @@
 
     <main>
         <section id="home" class="home">
-            <div class="hero">
-                <div class="hero-content">
-                    <h1>Nhiệt Đới</h1>
-                    <p>Khám phá trà và cà phê Việt Nam đích thực được chế tác với di sản.</p>
-                    <a href="#menu-section" onclick="showMenu()" class="btn">Khám phá Menu</a>
-                </div>
-            </div>
 
             <section class="carousel">
                 <div class="carousel-container">
@@ -958,6 +1003,13 @@
                 </div>
 
             </section>
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Nhiệt Đới</h1>
+                    <p>Khám phá trà và cà phê Việt Nam đích thực được chế tác với di sản.</p>
+                    <a href="#menu-section" onclick="showMenu()" class="btn">Khám phá Menu</a>
+                </div>
+            </div>
 
             <div id="menu" class="products">
                 <h2>Sản Phẩm</h2>

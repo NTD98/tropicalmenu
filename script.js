@@ -35,6 +35,7 @@ window.onclick = function(event) {
 
 function scrollToCategory(category) {
         showMenu(); // Show menu section
+        toggleDropdown();
         setTimeout(() => {
             const headings = document.querySelectorAll('.menu .category-section h2');
             for (const heading of headings) {
