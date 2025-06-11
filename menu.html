@@ -10,6 +10,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     <style>
+        aside div a:hover{
+            text-decoration: underline;
+        }
         html {
             scroll-behavior: smooth;
         }
@@ -1080,9 +1083,9 @@
             <div class="flex flex-col md:flex-row gap-8 items-start">
                 <aside id="sidebar" class="w-full md:w-1/4 lg:w-1/5 sticky top-36">
                     <div class="menu-sidebar flex flex-col gap-4">
-                        <a onclick="scrollToCategory('Coffee')" style="font-size: 18px; font-weight: bold; color: rgb(0, 111, 60); margin: 0; text-align: left; cursor: pointer;">Coffee</p>
-                        <a onclick="scrollToCategory('Tea')" style="font-size: 18px; font-weight: bold; color: rgb(0, 111, 60); margin: 0; text-align: left; cursor: pointer;">Tea</p>
-                        <a onclick="scrollToCategory('Juice')" style="font-size: 18px; font-weight: bold; color: rgb(0, 111, 60); margin: 0; text-align: left; cursor: pointer;">Juice</p>
+                        <a onclick="scrollToCategory('Coffee')" style="font-size: 18px; font-weight: bold; color: #666; margin: 0; text-align: left; cursor: pointer;">Coffee</p>
+                        <a onclick="scrollToCategory('Tea')" style="font-size: 18px; font-weight: bold; color: #666; margin: 0; text-align: left; cursor: pointer;">Tea</p>
+                        <a onclick="scrollToCategory('Juice')" style="font-size: 18px; font-weight: bold; color: #666; margin: 0; text-align: left; cursor: pointer;">Juice</p>
                     </div>
                 </aside>
                 <div class="w-full">
