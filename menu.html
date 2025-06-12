@@ -10,8 +10,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     <style>
+        aside div a {
+            font-size: 18px; 
+            font-weight: bold; 
+            color: #666; 
+            margin: 0; 
+            text-align: left; 
+            cursor: pointer;
+        }
         aside div a:hover{
             text-decoration: underline;
+            color: rgb(0, 111, 60);
         }
         html {
             scroll-behavior: smooth;
@@ -1083,9 +1092,9 @@
             <div class="flex flex-col md:flex-row gap-8 items-start">
                 <aside id="sidebar" class="w-full md:w-1/4 lg:w-1/5 sticky top-36">
                     <div class="menu-sidebar flex flex-col gap-4">
-                        <a onclick="scrollToCategory('Coffee')" style="font-size: 18px; font-weight: bold; color: #666; margin: 0; text-align: left; cursor: pointer;">Coffee</a>
-                        <a onclick="scrollToCategory('Tea')" style="font-size: 18px; font-weight: bold; color: #666; margin: 0; text-align: left; cursor: pointer;">Tea</a>
-                        <a onclick="scrollToCategory('Juice')" style="font-size: 18px; font-weight: bold; color: #666; margin: 0; text-align: left; cursor: pointer;">Juice</a>
+                        <a onclick="scrollToCategory('Coffee')">Coffee</a>
+                        <a onclick="scrollToCategory('Tea')">Tea</a>
+                        <a onclick="scrollToCategory('Juice')">Juice</a>
                     </div>
                 </aside>
                 <div class="w-full">
