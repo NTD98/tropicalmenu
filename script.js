@@ -34,6 +34,7 @@ window.onclick = function(event) {
 };
 
 function scrollToCategory(category) {
+    showMenu();
         setTimeout(() => {
             const headings = document.querySelectorAll('.category-section.scroll-mt-24 h2');
             for (const heading of headings) {
@@ -42,5 +43,7 @@ function scrollToCategory(category) {
                     break;
                 }
             }
-        }, 50);
+        }, 100);
 }
+
+showHome();
