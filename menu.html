@@ -10,6 +10,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
     <style>
+        aside {
+            border: 1px solid rgb(236, 239, 241);
+            border-radius: 8px;
+            height: 40vh;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
         aside div a {
             font-size: 18px; 
             font-weight: bold; 
@@ -92,13 +99,13 @@
         /* Header */
         header {
             background-color: white;
-            padding: 15px 30px;
+            padding: 0px 30px;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgb(0, 111, 60);
+            border-bottom: 2px solid rgb(0, 111, 60);
         }
 
         .nav-container {
@@ -113,7 +120,7 @@
         }
 
         .logo img {
-            height: 80px;
+            height: 100px;
             width: auto;
         }
 
@@ -429,7 +436,7 @@
         }
 
         .category-section h2 {
-            font-size: 50px;
+            font-size: 40px;
             color: rgb(0, 111, 60);
             margin-bottom: 20px;
             text-align: center;
@@ -463,7 +470,7 @@
 
         .menu-card img {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             background-color: white;
         }
@@ -1002,9 +1009,9 @@
                     <li onmouseenter="toggleDropdown()" onmouseleave="toggleDropdown()" class="dropdown">
                         <a onclick="showMenu()">Menu</a>
                         <ul id="dropdown-content" class="dropdown-content">
-                            <li><a href="#" onclick="scrollToCategory('Coffee');">Coffee</a></li>
-                            <li><a href="#" onclick="scrollToCategory('Tea');">Tea</a></li>
-                            <li><a href="#" onclick="scrollToCategory('Juice');">Juice</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Coffee')">Coffee</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Tea')">Tea</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Juice')">Juice</a></li>
                         </ul>
                     </li>
                     <li><a href="#event" onclick="showEvent(); document.getElementById('menu-toggle').checked = false;">Event</a></li>
@@ -1095,6 +1102,7 @@
                         <a onclick="scrollToCategory('Coffee')">Coffee</a>
                         <a onclick="scrollToCategory('Tea')">Tea</a>
                         <a onclick="scrollToCategory('Juice')">Juice</a>
+                        <a onclick="scrollToCategory('Topping')">Topping</a>
                     </div>
                 </aside>
                 <div class="w-full">
@@ -1188,7 +1196,7 @@
                             </div>
                             <div class="menu-card">
                                 <span class="top-seller-icon">★</span>
-                                <img src="phindi.png"
+                                <img src="phindi-Photoroom.jpg"
                                      onerror="this.src='logo.png'"
                                      alt="Almond milk coffee">
                                 <h3>Phindi hạnh nhân</h3>
@@ -1397,7 +1405,6 @@
                                 <p>Nước cam ép tươi mát</p>
                                 <div class="size-prices-middle">
                                     <div class="size-price">
-                                        
                                         <span class="price">25</span>
                                     </div>
                                 </div>
@@ -1410,7 +1417,6 @@
                                 <p>Nước dừa tươi nguyên chất</p>
                                 <div class="size-prices-middle">
                                     <div class="size-price">
-                                        
                                         <span class="price">25</span>
                                     </div>
                                 </div>
@@ -1450,6 +1456,73 @@
                                 <div class="size-prices-middle">
                                     <div class="size-price">
                                         <span class="price">30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Topping" class="category-section scroll-mt-24">
+                        <h2>Topping</h2>
+                        <div class="menu-grid">
+                            <div class="menu-card">
+                                <img src="hatnocunang.png"
+                                     onerror="this.src='logo.png'"
+                                     alt="Topping">
+                                <h3>Hạt nổ củ năng</h3>
+                                <p>Được làm từ củ năng tươi và áo một lớp bột bên ngoài, khi cắn sẽ nổ để lộ ra phần củ năng giòn</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="price">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-card">
+                                <span class="top-seller-icon">★</span>
+                                <img src="hatnovq.png"
+                                     onerror="this.src='logo.png'"
+                                     alt="Boba Blueberry">
+                                <h3>Hạt nổ việt quất</h3>
+                                <p>Hạt nổ việt quất là loại topping giòn khi cắn sẽ nổ và có vị việt quất bên trong</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="price">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-card">
+                                <span class="top-seller-icon">★</span>
+                                <img src="hatnophomai.png"
+                                     onerror="this.src='logo.png'"
+                                     alt="Boba Cheese">
+                                <h3>Hạt nổ phô mai</h3>
+                                <p>Hạt nổ phô mai là loại topping giòn khi cắn sẽ nổ và có vị phô mai bên trong</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="price">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-card">
+                                <img src="hatdac.png"
+                                     onerror="this.src='logo.png'"
+                                     alt="Hat dac">
+                                <h3>Hạt đác tươi</h3>
+                                <p></p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="price">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-card">
+                                <img src="thotnot.png"
+                                     onerror="this.src='logo.png'"
+                                     alt="Thot Not">
+                                <h3>Thốt nốt</h3>
+                                <p>Thốt nốt tươi được rim với đường thốt nốt</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="price">5</span>
                                     </div>
                                 </div>
                             </div>
