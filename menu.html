@@ -19,15 +19,14 @@
         }
         aside div a {
             font-size: 18px; 
-            font-weight: bold; 
-            color: #666; 
+            font-weight: bold;
+            color: rgb(0, 111, 60);
             margin: 0; 
             text-align: left; 
             cursor: pointer;
         }
         aside div a:hover{
             text-decoration: underline;
-            color: rgb(0, 111, 60);
         }
         html {
             scroll-behavior: smooth;
@@ -61,14 +60,13 @@
         ul li .dropdown-content li a {
             padding: 10px 15px;
             display: block;
-            color: #666;
+            color: rgb(0, 111, 60);
             font-weight: 500;
             text-decoration: none;
         }
 
         ul li .dropdown-content li a:hover {
-            background-color: rgb(0, 111, 60);
-            color: white;
+            text-decoration: underline;
         }
 
         * {
@@ -131,7 +129,7 @@
         }
 
         ul li a {
-            color: #666;
+            color: rgb(0, 111, 60);
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
@@ -140,7 +138,7 @@
         }
 
         ul li a:hover {
-            color: rgb(0, 111, 60); /* Kept hover color for contrast */
+            text-decoration: underline /* Kept hover color for contrast */
         }
 
         /* Burger Menu Styles */
@@ -1012,6 +1010,7 @@
                             <li><a href="#" onclick="scrollToCategory('Coffee')">Coffee</a></li>
                             <li><a href="#" onclick="scrollToCategory('Tea')">Tea</a></li>
                             <li><a href="#" onclick="scrollToCategory('Juice')">Juice</a></li>
+                            <li><a href="#" onclick="scrollToCategory('Soda')">Soda</a></li>
                         </ul>
                     </li>
                     <li><a href="#event" onclick="showEvent(); document.getElementById('menu-toggle').checked = false;">Event</a></li>
@@ -1102,6 +1101,7 @@
                         <a onclick="scrollToCategory('Coffee')">Coffee</a>
                         <a onclick="scrollToCategory('Tea')">Tea</a>
                         <a onclick="scrollToCategory('Juice')">Juice</a>
+                        <a onclick="scrollToCategory('Soda')">Soda</a>
                         <a onclick="scrollToCategory('Topping')">Topping</a>
                     </div>
                 </aside>
@@ -1456,6 +1456,65 @@
                                 <div class="size-prices-middle">
                                     <div class="size-price">
                                         <span class="price">30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Soda" class="category-section scroll-mt-24">
+                        <h2>Soda</h2>
+                        <div class="menu-grid">
+                            <div class="menu-card">
+                                <img src="mojito.png"
+                                     onerror="this.src='logo.png'"
+                                     alt="Mojito">
+                                <h3>Mojito</h3>
+                                <p>Được kết hợp giữa vị chua của chanh, vị ngọt của đường, vị gas nhẹ của soda và mùi thơm hăng hắc của lá bạc</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="size">L</span>
+                                        <span class="price">28</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-card">
+                                <span class="top-seller-icon">★</span>
+                                <img src="blueberrysoda.png"
+                                     onerror="this.src='logo.png'"
+                                     alt="Blueberry Soda">
+                                <h3>Soda việt quất</h3>
+                                <p>Mức việt quất có vị chua ngọt tự nhiên kết hợp vị gas của soda, tạo nên thức uống mát lạnh, hấp dẫn.</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="size">L</span>
+                                        <span class="price">28</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-card">
+                                <span class="top-seller-icon">★</span>
+                                <img src="blueocean.jpeg"
+                                     onerror="this.src='logo.png'"
+                                     alt="Soda Blue Ocean">
+                                <h3>Soda Blue Ocean</h3>
+                                <p>Thức uống giải khát có màu xanh đại dương đẹp mắt, mang lại cảm giác mát lạnh, sảng khoái.</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="size">L</span>
+                                        <span class="price">28</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menu-card">
+                                <img src="kiwisoda-Photoroom.jpg"
+                                     onerror="this.src='logo.png'"
+                                     alt="Kiwi Soda">
+                                <h3>Soda Kiwi</h3>
+                                <p>Mức kiwi có vị chua ngọt tự nhiên kết hợp với vị gas nhẹ của soda, tạo nên thức uống mát lạnh, hấp dẫn.</p>
+                                <div class="size-prices-middle">
+                                    <div class="size-price">
+                                        <span class="size">L</span>
+                                        <span class="price">28</span>
                                     </div>
                                 </div>
                             </div>
